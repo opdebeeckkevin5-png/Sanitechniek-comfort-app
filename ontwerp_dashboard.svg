@@ -1,0 +1,452 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -80 2230 1560" width="1394" height="975" font-family="Segoe UI, Arial"><rect x="-20" y="-80" width="2230" height="1560" fill="#fff"/>
+<text x="0" y="-29" font-size="26" fill="#1e1e1e">ONTWERP comfortapp – hoofdpagina (tab &#x27;Comfort&#x27; open)</text>
+<rect x="0" y="0" width="1100" height="1010" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<rect x="0" y="0" width="220" height="1010" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="15" y="39" font-size="20" fill="#1e1e1e">Zijbalk</text>
+<rect x="15" y="60" width="190" height="44" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="25" y="89" font-size="14" fill="#1e1e1e">📤 GBS-data (.csv.gz)</text>
+<rect x="15" y="118" width="190" height="44" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="25" y="147" font-size="14" fill="#1e1e1e">📤 Klachten (.xlsx)</text>
+<rect x="15" y="176" width="190" height="44" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="25" y="205" font-size="14" fill="#1e1e1e">Zone(s)  ▼  alle</text>
+<rect x="15" y="234" width="190" height="44" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="25" y="263" font-size="14" fill="#1e1e1e">Periode  [van] – [tot]</text>
+<rect x="15" y="292" width="190" height="44" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="25" y="321" font-size="14" fill="#1e1e1e">Band min  [20] °C</text>
+<rect x="15" y="350" width="190" height="44" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="25" y="379" font-size="14" fill="#1e1e1e">Band max  [24] °C</text>
+<rect x="15" y="408" width="190" height="44" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="25" y="437" font-size="14" fill="#1e1e1e">Kantooruren 8–17 u (geen feestd.)</text>
+<rect x="15" y="466" width="190" height="44" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="25" y="495" font-size="14" fill="#1e1e1e">☐ ook nacht/weekend</text>
+<text x="15" y="555" font-size="13" fill="#495057">Band volgt seizoen:</text>
+<text x="15" y="572" font-size="13" fill="#495057">okt–apr 20–24 °C</text>
+<text x="15" y="588" font-size="13" fill="#495057">mei–sep 23–26 °C</text>
+<text x="15" y="604" font-size="13" fill="#495057">(Typebestek 105,</text>
+<text x="15" y="620" font-size="13" fill="#495057">tabel B1.2.-1)</text>
+<text x="245" y="41" font-size="22" fill="#1e1e1e">Binnenklimaat kantoor – zit het binnen de comfortgrenzen?</text>
+<text x="245" y="65" font-size="13" fill="#495057">Periode: dd/mm – dd/mm · bron: GBS (Priva via BACnet) · laatste meting: dd/mm hh:mm</text>
+<rect x="245" y="85" width="155" height="100" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<text x="255" y="107" font-size="13" fill="#1e1e1e">% kantoorkwartieren</text>
+<text x="255" y="124" font-size="13" fill="#1e1e1e">binnen band</text>
+<text x="255" y="171" font-size="28" fill="#1e1e1e">xx %</text>
+<rect x="413" y="85" width="155" height="100" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="423" y="107" font-size="13" fill="#1e1e1e">Klachten</text>
+<text x="423" y="171" font-size="28" fill="#1e1e1e">xx</text>
+<rect x="581" y="85" width="155" height="100" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="591" y="107" font-size="13" fill="#1e1e1e">Gegrond</text>
+<text x="591" y="171" font-size="28" fill="#1e1e1e">xx</text>
+<rect x="749" y="85" width="155" height="100" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<text x="759" y="107" font-size="13" fill="#1e1e1e">Ongegrond</text>
+<text x="759" y="171" font-size="28" fill="#1e1e1e">xx</text>
+<rect x="917" y="85" width="155" height="100" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="927" y="107" font-size="13" fill="#1e1e1e">Niet te</text>
+<text x="927" y="124" font-size="13" fill="#1e1e1e">beoordelen</text>
+<text x="927" y="171" font-size="28" fill="#1e1e1e">xx</text>
+<rect x="245" y="205" width="140" height="38" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="260" y="233" font-size="15" fill="#1e1e1e">Comfort</text>
+<rect x="395" y="205" width="140" height="38" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="410" y="233" font-size="15" fill="#1e1e1e">Klachten</text>
+<rect x="545" y="205" width="140" height="38" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="560" y="233" font-size="15" fill="#1e1e1e">Oorzaak</text>
+<rect x="695" y="205" width="140" height="38" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="710" y="233" font-size="15" fill="#1e1e1e">Stap voor stap</text>
+<rect x="240" y="243" width="840" height="2" rx="6" fill="#1e1e1e" stroke="#1e1e1e" stroke-width="1"/>
+<text x="245" y="278" font-size="15" fill="#1e1e1e">A1 · Per zone, gesorteerd op % buiten band (slechtste bovenaan)</text>
+<rect x="245" y="290" width="250" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="251" y="311" font-size="13" fill="#1e1e1e">Zone ↓</text>
+<rect x="495" y="290" width="110" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="501" y="311" font-size="13" fill="#1e1e1e">buiten band</text>
+<rect x="605" y="290" width="110" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="611" y="311" font-size="13" fill="#1e1e1e">te koud</text>
+<rect x="715" y="290" width="110" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="721" y="311" font-size="13" fill="#1e1e1e">te warm</text>
+<rect x="825" y="290" width="110" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="831" y="311" font-size="13" fill="#1e1e1e">geen data</text>
+<rect x="245" y="320" width="250" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="251" y="341" font-size="13" fill="#1e1e1e">0.2 Uitvoering</text>
+<rect x="495" y="320" width="110" height="30" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="501" y="341" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="605" y="320" width="110" height="30" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="611" y="341" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="715" y="320" width="110" height="30" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<text x="721" y="341" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="825" y="320" width="110" height="30" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="831" y="341" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="245" y="350" width="250" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="251" y="371" font-size="13" fill="#1e1e1e">0.3 Oranje vergaderzaal</text>
+<rect x="495" y="350" width="110" height="30" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="501" y="371" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="605" y="350" width="110" height="30" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="611" y="371" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="715" y="350" width="110" height="30" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<text x="721" y="371" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="825" y="350" width="110" height="30" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="831" y="371" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="245" y="380" width="250" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="251" y="401" font-size="13" fill="#1e1e1e">0.4 Receptie</text>
+<rect x="495" y="380" width="110" height="30" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="501" y="401" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="605" y="380" width="110" height="30" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="611" y="401" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="715" y="380" width="110" height="30" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<text x="721" y="401" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="825" y="380" width="110" height="30" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="831" y="401" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="245" y="410" width="250" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="251" y="431" font-size="13" fill="#1e1e1e">…</text>
+<rect x="495" y="410" width="110" height="30" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="501" y="431" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="605" y="410" width="110" height="30" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="611" y="431" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="715" y="410" width="110" height="30" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<text x="721" y="431" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="825" y="410" width="110" height="30" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="831" y="431" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="245" y="440" width="250" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="251" y="461" font-size="13" fill="#1e1e1e">1.7 Refter (VAV-voeler)</text>
+<rect x="495" y="440" width="110" height="30" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="501" y="461" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="605" y="440" width="110" height="30" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="611" y="461" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="715" y="440" width="110" height="30" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<text x="721" y="461" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="825" y="440" width="110" height="30" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="831" y="461" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="245" y="470" width="250" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="251" y="491" font-size="13" fill="#1e1e1e">0.1 Nazorg – geen data</text>
+<rect x="495" y="470" width="110" height="30" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="501" y="491" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="605" y="470" width="110" height="30" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="611" y="491" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="715" y="470" width="110" height="30" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<text x="721" y="491" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="825" y="470" width="110" height="30" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="831" y="491" font-size="13" fill="#1e1e1e">xx %</text>
+<rect x="945" y="290" width="140" height="82" rx="6" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="1"/>
+<text x="953" y="315" font-size="14" fill="#2b8a3e">✅ sorteren</text>
+<text x="953" y="332" font-size="14" fill="#2b8a3e">op % buiten</text>
+<text x="953" y="350" font-size="14" fill="#2b8a3e">band</text>
+<text x="245" y="538" font-size="15" fill="#1e1e1e">A2 · Wanneer buiten de band? (zone × werkdag, kleur = % kwartieren buiten band)</text>
+<text x="245" y="570" font-size="13" fill="#1e1e1e">0.2</text>
+<rect x="285" y="550" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="329" y="550" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="373" y="550" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="417" y="550" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="461" y="550" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="505" y="550" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="549" y="550" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="593" y="550" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="637" y="550" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="681" y="550" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="725" y="550" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="769" y="550" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="813" y="550" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="857" y="550" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="901" y="550" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="945" y="550" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<text x="245" y="598" font-size="13" fill="#1e1e1e">0.3</text>
+<rect x="285" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="329" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="373" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="417" y="578" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="461" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="505" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="549" y="578" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="593" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="637" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="681" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="725" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="769" y="578" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="813" y="578" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="857" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="901" y="578" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="945" y="578" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="245" y="626" font-size="13" fill="#1e1e1e">0.4</text>
+<rect x="285" y="606" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="329" y="606" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="373" y="606" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="417" y="606" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="461" y="606" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="505" y="606" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="549" y="606" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="593" y="606" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="637" y="606" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="681" y="606" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="725" y="606" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="769" y="606" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="813" y="606" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="857" y="606" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="901" y="606" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="945" y="606" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<text x="245" y="654" font-size="13" fill="#1e1e1e">…</text>
+<rect x="285" y="634" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="329" y="634" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="373" y="634" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="417" y="634" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="461" y="634" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="505" y="634" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="549" y="634" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="593" y="634" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="637" y="634" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="681" y="634" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="725" y="634" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="769" y="634" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="813" y="634" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="857" y="634" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="901" y="634" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="945" y="634" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<text x="245" y="682" font-size="13" fill="#1e1e1e">1.6</text>
+<rect x="285" y="662" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="329" y="662" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="373" y="662" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="417" y="662" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="461" y="662" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="505" y="662" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="549" y="662" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="593" y="662" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="637" y="662" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="681" y="662" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="725" y="662" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="769" y="662" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="813" y="662" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="857" y="662" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="901" y="662" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="945" y="662" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<text x="245" y="710" font-size="13" fill="#1e1e1e">1.7</text>
+<rect x="285" y="690" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="329" y="690" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="373" y="690" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="417" y="690" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="461" y="690" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="505" y="690" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="549" y="690" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="593" y="690" width="42" height="26" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="637" y="690" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="681" y="690" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="725" y="690" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="769" y="690" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="813" y="690" width="42" height="26" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="857" y="690" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="901" y="690" width="42" height="26" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="945" y="690" width="42" height="26" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="285" y="739" font-size="12" fill="#495057">ma 12/10 = grijs (datagat)        groen = ok · oranje = deels buiten · rood = vaak buiten</text>
+<text x="245" y="778" font-size="15" fill="#1e1e1e">A3 · Te koud of te warm? (gestapelde staaf per zone)</text>
+<rect x="260" y="872" width="60" height="71" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="260" y="943" width="60" height="17" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="260" y="960" width="60" height="0" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="355" y="882" width="60" height="49" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="355" y="931" width="60" height="18" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="355" y="949" width="60" height="11" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="450" y="879" width="60" height="61" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="450" y="940" width="60" height="17" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="450" y="957" width="60" height="3" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="545" y="876" width="60" height="65" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="545" y="941" width="60" height="17" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="545" y="958" width="60" height="2" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="640" y="882" width="60" height="43" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="640" y="925" width="60" height="26" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="640" y="951" width="60" height="9" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="735" y="854" width="60" height="63" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="735" y="917" width="60" height="30" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="735" y="947" width="60" height="13" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="830" y="864" width="60" height="68" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="830" y="932" width="60" height="24" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="830" y="956" width="60" height="4" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="925" y="870" width="60" height="66" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="925" y="936" width="60" height="15" rx="6" fill="#d0ebff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="925" y="951" width="60" height="9" rx="6" fill="#ffe8cc" stroke="#1e1e1e" stroke-width="1"/>
+<polyline points="250,960 1040,960" fill="none" stroke="#1e1e1e" stroke-width="2"/>
+<text x="260" y="982" font-size="12" fill="#495057">binnen (groen) · te koud (blauw) · te warm (oranje)</text>
+<text x="1180" y="-34" font-size="22" fill="#1e1e1e">Tab &#x27;Klachten&#x27;</text>
+<rect x="1180" y="0" width="760" height="600" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1195" y="34" font-size="16" fill="#1e1e1e">B1 · Elke klacht naast de meting (±30 min)</text>
+<rect x="1195" y="50" width="95" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1200" y="71" font-size="12" fill="#1e1e1e">Datum</text>
+<rect x="1290" y="50" width="60" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295" y="71" font-size="12" fill="#1e1e1e">Uur</text>
+<rect x="1350" y="50" width="170" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1355" y="71" font-size="12" fill="#1e1e1e">Zone</text>
+<rect x="1520" y="50" width="110" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1525" y="71" font-size="12" fill="#1e1e1e">Soort</text>
+<rect x="1630" y="50" width="120" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1635" y="71" font-size="12" fill="#1e1e1e">Temp min–max</text>
+<rect x="1750" y="50" width="175" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1755" y="71" font-size="12" fill="#1e1e1e">Beoordeling</text>
+<rect x="1195" y="80" width="95" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1200" y="101" font-size="12" fill="#1e1e1e">26/10</text>
+<rect x="1290" y="80" width="60" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295" y="101" font-size="12" fill="#1e1e1e">08:30</text>
+<rect x="1350" y="80" width="170" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1355" y="101" font-size="12" fill="#1e1e1e">1.2 Calculatie</text>
+<rect x="1520" y="80" width="110" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1525" y="101" font-size="12" fill="#1e1e1e">te koud</text>
+<rect x="1630" y="80" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1635" y="101" font-size="12" fill="#1e1e1e">18,6–19,8</text>
+<rect x="1750" y="80" width="175" height="30" rx="6" fill="#ffc9c9" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1755" y="101" font-size="12" fill="#1e1e1e">gegrond (te koud)</text>
+<rect x="1195" y="110" width="95" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1200" y="131" font-size="12" fill="#1e1e1e">dd/mm</text>
+<rect x="1290" y="110" width="60" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295" y="131" font-size="12" fill="#1e1e1e">hh:mm</text>
+<rect x="1350" y="110" width="170" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1355" y="131" font-size="12" fill="#1e1e1e">0.4 Receptie</text>
+<rect x="1520" y="110" width="110" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1525" y="131" font-size="12" fill="#1e1e1e">te warm</text>
+<rect x="1630" y="110" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1635" y="131" font-size="12" fill="#1e1e1e">21,0–21,3</text>
+<rect x="1750" y="110" width="175" height="30" rx="6" fill="#d3f9d8" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1755" y="131" font-size="12" fill="#1e1e1e">ongegrond</text>
+<rect x="1195" y="140" width="95" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1200" y="161" font-size="12" fill="#1e1e1e">dd/mm</text>
+<rect x="1290" y="140" width="60" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295" y="161" font-size="12" fill="#1e1e1e">hh:mm</text>
+<rect x="1350" y="140" width="170" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1355" y="161" font-size="12" fill="#1e1e1e">0.9 Magazijn 2</text>
+<rect x="1520" y="140" width="110" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1525" y="161" font-size="12" fill="#1e1e1e">te koud</text>
+<rect x="1630" y="140" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1635" y="161" font-size="12" fill="#1e1e1e">–</text>
+<rect x="1750" y="140" width="175" height="30" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1755" y="161" font-size="12" fill="#1e1e1e">n.t.b. – geen meting</text>
+<rect x="1195" y="170" width="95" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1200" y="191" font-size="12" fill="#1e1e1e">dd/mm</text>
+<rect x="1290" y="170" width="60" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295" y="191" font-size="12" fill="#1e1e1e">hh:mm</text>
+<rect x="1350" y="170" width="170" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1355" y="191" font-size="12" fill="#1e1e1e">1.5 Directie 1</text>
+<rect x="1520" y="170" width="110" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1525" y="191" font-size="12" fill="#1e1e1e">te koud</text>
+<rect x="1630" y="170" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1635" y="191" font-size="12" fill="#1e1e1e">–</text>
+<rect x="1750" y="170" width="175" height="30" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1755" y="191" font-size="12" fill="#1e1e1e">n.t.b. – datagat</text>
+<rect x="1195" y="200" width="95" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1200" y="221" font-size="12" fill="#1e1e1e">dd/mm</text>
+<rect x="1290" y="200" width="60" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1295" y="221" font-size="12" fill="#1e1e1e">hh:mm</text>
+<rect x="1350" y="200" width="170" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1355" y="221" font-size="12" fill="#1e1e1e">0.2 Uitvoering</text>
+<rect x="1520" y="200" width="110" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1525" y="221" font-size="12" fill="#1e1e1e">akoestiek</text>
+<rect x="1630" y="200" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1635" y="221" font-size="12" fill="#1e1e1e">–</text>
+<rect x="1750" y="200" width="175" height="30" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1755" y="221" font-size="12" fill="#1e1e1e">n.t.b. – ander thema</text>
+<text x="1195" y="255" font-size="13" fill="#495057">↓ klik een klacht aan → B3 detail</text>
+<text x="1195" y="288" font-size="15" fill="#1e1e1e">B3 · Temperatuurverloop rond de klacht (± 3 u) – zone 1.2 Calculatie, ma 26/10</text>
+<rect x="1220" y="300" width="690" height="270" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<rect x="1220" y="370" width="690" height="120" rx="6" fill="#ebfbee" stroke="#8ce99a" stroke-width="1" stroke-dasharray="8 6"/>
+<text x="1780" y="389" font-size="12" fill="#2b8a3e">band 20–24</text>
+<polyline points="1220,470 1380,472 1540,470 1630,468 1700,440 1780,400 1910,385" fill="none" stroke="#1971c2" stroke-width="3"/>
+<polyline points="1600,300 1600,570" fill="none" stroke="#e03131" stroke-width="2" stroke-dasharray="8 6"/>
+<rect x="1560" y="300" width="80" height="270" rx="6" fill="none" stroke="#e03131" stroke-width="1" stroke-dasharray="2 4"/>
+<text x="1520" y="559" font-size="12" fill="#e03131">klacht 08:30 (±30 min)</text>
+<text x="1230" y="492" font-size="12" fill="#1971c2">ruimtetemp</text>
+<rect x="1960" y="50" width="230" height="60" rx="6" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="1"/>
+<text x="1968" y="75" font-size="14" fill="#2b8a3e">✅ klacht &#x27;te koud&#x27; maar</text>
+<text x="1968" y="92" font-size="14" fill="#2b8a3e">temp te warm = ongegrond</text>
+<rect x="1960" y="130" width="230" height="82" rx="6" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="1"/>
+<text x="1968" y="155" font-size="14" fill="#2b8a3e">✅ &#x27;gegrond&#x27; enkel als de</text>
+<text x="1968" y="172" font-size="14" fill="#2b8a3e">afwijking in de richting</text>
+<text x="1968" y="190" font-size="14" fill="#2b8a3e">van de klacht gaat</text>
+<rect x="1960" y="230" width="230" height="82" rx="6" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="1"/>
+<text x="1968" y="255" font-size="14" fill="#2b8a3e">✅ klacht zonder uur:</text>
+<text x="1968" y="272" font-size="14" fill="#2b8a3e">hele werkdag (8–17 u)</text>
+<text x="1968" y="290" font-size="14" fill="#2b8a3e">bekijken</text>
+<text x="1180" y="686" font-size="22" fill="#1e1e1e">Tab &#x27;Oorzaak&#x27;</text>
+<rect x="1180" y="700" width="760" height="330" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="1195" y="730" font-size="15" fill="#1e1e1e">C · Waarom buiten de band? Warmteproductie en regeling (gekozen dag + zone)</text>
+<rect x="1220" y="745" width="690" height="220" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<polyline points="1220,930 1380,930 1390,790 1910,795" fill="none" stroke="#e8590c" stroke-width="2" stroke-dasharray="8 6"/>
+<polyline points="1220,925 1630,926 1650,800 1910,800" fill="none" stroke="#c92a2a" stroke-width="3"/>
+<polyline points="1220,900 1650,902 1780,870 1910,865" fill="none" stroke="#1971c2" stroke-width="3"/>
+<text x="1400" y="784" font-size="12" fill="#e8590c">kringsetpoint (gevraagd)</text>
+<text x="1660" y="824" font-size="12" fill="#c92a2a">aanvoer gemeten</text>
+<text x="1790" y="859" font-size="12" fill="#1971c2">ruimtetemp</text>
+<text x="1195" y="990" font-size="13" fill="#c92a2a">Melding: &quot;04:00–08:00 aanvoer &gt; 3 °C onder setpoint → warmteproductie leverde niet&quot;</text>
+<text x="1195" y="1015" font-size="13" fill="#495057">+ setpoint van de zone (comfort/stand-by, verschuiving gebruiker)</text>
+<text x="0" y="1116" font-size="22" fill="#1e1e1e">Tab &#x27;Stap voor stap&#x27; (rijen-trechter + expander per stap = voor het no-AI gesprek)</text>
+<rect x="0" y="1130" width="1940" height="330" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<rect x="15" y="1145" width="330" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="21" y="1166" font-size="12" fill="#1e1e1e">Stap</text>
+<rect x="345" y="1145" width="120" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="351" y="1166" font-size="12" fill="#1e1e1e">Rijen in</text>
+<rect x="465" y="1145" width="120" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="471" y="1166" font-size="12" fill="#1e1e1e">Rijen uit</text>
+<rect x="585" y="1145" width="100" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="591" y="1166" font-size="12" fill="#1e1e1e">Weg</text>
+<rect x="685" y="1145" width="560" height="30" rx="6" fill="#dee2e6" stroke="#1e1e1e" stroke-width="1"/>
+<text x="691" y="1166" font-size="12" fill="#1e1e1e">Waarom</text>
+<rect x="15" y="1175" width="330" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="21" y="1196" font-size="12" fill="#1e1e1e">1 GBS-data inlezen</text>
+<rect x="345" y="1175" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="351" y="1196" font-size="12" fill="#1e1e1e">–</text>
+<rect x="465" y="1175" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="471" y="1196" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="585" y="1175" width="100" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="591" y="1196" font-size="12" fill="#1e1e1e">–</text>
+<rect x="685" y="1175" width="560" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="691" y="1196" font-size="12" fill="#1e1e1e"></text>
+<rect x="15" y="1205" width="330" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="21" y="1226" font-size="12" fill="#1e1e1e">2 Nodige punten houden</text>
+<rect x="345" y="1205" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="351" y="1226" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="465" y="1205" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="471" y="1226" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="585" y="1205" width="100" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="591" y="1226" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="685" y="1205" width="560" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="691" y="1226" font-size="12" fill="#1e1e1e">andere BACnet-punten niet nodig</text>
+<rect x="15" y="1235" width="330" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="21" y="1256" font-size="12" fill="#1e1e1e">3 Zone koppelen</text>
+<rect x="345" y="1235" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="351" y="1256" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="465" y="1235" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="471" y="1256" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="585" y="1235" width="100" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="591" y="1256" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="685" y="1235" width="560" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="691" y="1256" font-size="12" fill="#1e1e1e">device zonder zone</text>
+<rect x="15" y="1265" width="330" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="21" y="1286" font-size="12" fill="#1e1e1e">5 Per kwartier gelijkzetten</text>
+<rect x="345" y="1265" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="351" y="1286" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="465" y="1265" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="471" y="1286" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="585" y="1265" width="100" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="591" y="1286" font-size="12" fill="#1e1e1e">–</text>
+<rect x="685" y="1265" width="560" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="691" y="1286" font-size="12" fill="#1e1e1e">samenvoegen, geen verlies</text>
+<rect x="15" y="1295" width="330" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="21" y="1316" font-size="12" fill="#1e1e1e">8 Klachten controleren</text>
+<rect x="345" y="1295" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="351" y="1316" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="465" y="1295" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="471" y="1316" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="585" y="1295" width="100" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="591" y="1316" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="685" y="1295" width="560" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="691" y="1316" font-size="12" fill="#1e1e1e">lege datum/uur/zone</text>
+<rect x="15" y="1325" width="330" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="21" y="1346" font-size="12" fill="#1e1e1e">9 Klacht ↔ meting (±30 min)</text>
+<rect x="345" y="1325" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="351" y="1346" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="465" y="1325" width="120" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="471" y="1346" font-size="12" fill="#1e1e1e">xx</text>
+<rect x="585" y="1325" width="100" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="591" y="1346" font-size="12" fill="#1e1e1e">–</text>
+<rect x="685" y="1325" width="560" height="30" rx="6" fill="#ffffff" stroke="#1e1e1e" stroke-width="1"/>
+<text x="691" y="1346" font-size="12" fill="#1e1e1e"></text>
+<rect x="1290" y="1145" width="620" height="40" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1300" y="1170" font-size="13" fill="#1e1e1e">▸ Stap 1 – GBS-data inlezen   (uitleg · rijen in/uit · voorbeeld · code)</text>
+<rect x="1290" y="1195" width="620" height="40" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1300" y="1220" font-size="13" fill="#1e1e1e">▸ Stap 2 – nodige punten   (uitleg · rijen in/uit · voorbeeld · code)</text>
+<rect x="1290" y="1245" width="620" height="40" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1300" y="1270" font-size="13" fill="#1e1e1e">▸ Stap 3 – zone koppelen   (uitleg · rijen in/uit · voorbeeld · code)</text>
+<rect x="1290" y="1295" width="620" height="40" rx="6" fill="#f1f3f5" stroke="#1e1e1e" stroke-width="1"/>
+<text x="1300" y="1320" font-size="13" fill="#1e1e1e">▸ …   (uitleg · rijen in/uit · voorbeeld · code)</text>
+<rect x="1290" y="1360" width="280" height="60" rx="6" fill="#d3f9d8" stroke="#2b8a3e" stroke-width="1"/>
+<text x="1298" y="1385" font-size="14" fill="#2b8a3e">✅ feestdagen tellen niet als</text>
+<text x="1298" y="1402" font-size="14" fill="#2b8a3e">kantooruren (feestdagen.csv)</text>
+</svg>

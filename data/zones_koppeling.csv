@@ -1,0 +1,21 @@
+formulier_zone;zonetype;gbs_device;opmerking
+0.1 Nazorg (Kantoor 1);kantoor geklimatiseerd;;regelaar KP 0.1 bestaat in Priva maar wordt (nog) niet uitgelezen
+0.2 Uitvoering (Kantoor 2);kantoor geklimatiseerd;4;
+0.3 Oranje vergaderzaal (Vergaderboxen);kantoor geklimatiseerd;5;eigen ruimtevoeler
+0.4 Receptie;kantoor geklimatiseerd;6;
+0.5 Inkomhal;kantoor geklimatiseerd;15;
+0.6 Groene vergaderzaal (Vergaderzaal +0);kantoor geklimatiseerd;3;eigen ruimtevoeler
+0.7 Magazijniers;kantoor geklimatiseerd;2;in de Priva genummerd als KP 0.11
+0.8 Nachtkluis;magazijn gasverhitter;;geen zoneregelaar
+0.9 Magazijn 2;magazijn gasverhitter;;geen zoneregelaar
+0.10 Magazijn 1;magazijn gasverhitter;;geen zoneregelaar
+1.1 Boekhouding (Kantoor 3);kantoor geklimatiseerd;7;
+1.2 Calculatie (Kantoor 4);kantoor geklimatiseerd;8;
+1.3 Elektro & regeling (Kantoor 5);kantoor geklimatiseerd;9;
+1.4 Ontspanningsruimte (Vergaderzaal +1);kantoor geklimatiseerd;10;
+1.5 Directie 1;kantoor geklimatiseerd;11;
+1.6 Directie 2;kantoor geklimatiseerd;12;
+1.7 Refter;kantoor geklimatiseerd;500;geen zoneregelaar op BACnet: VAV-voeler van de Priva (AV191 ruimtetemp, AV171 SP verwarmen, AV170 SP koelen)
+1.8 Technische ruimte;magazijn gasverhitter;;geen zoneregelaar
+1.9 Magazijn 3;magazijn gasverhitter;;geen zoneregelaar
+Andere / weet niet;onbekend;;niet te koppelen

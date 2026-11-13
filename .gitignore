@@ -1,0 +1,9 @@
+# Echte bedrijfsdata en klachten nooit in de publieke repo: die upload je in de app.
+data/echt/
+*.csv.gz
+klachten_*.xlsx
+
+# Geheimen en Python-rommel
+.env
+__pycache__/
+.pytest_cache/
