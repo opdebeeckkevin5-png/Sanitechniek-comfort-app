@@ -41,6 +41,9 @@ Vul de kolom "waarom" aan in je eigen woorden: in het no-AI gesprek moet je elke
 | 13/11/2026 | Wat met onmogelijke temperaturen (voelerfout)? | Metingen < 10 °C of > 35 °C weglaten en tellen in de rijen-trechter | **Aanvaard** | Wo 21/10 11:39–11:41: 3 zones tegelijk 0,0 °C (3 van 50 458 metingen) → zou ten onrechte "te koud" geven |
 | 12/11/2026 | Ook behaaglijkheid/ventilatie (CO2, RV, akoestiek) in de app? | CO2 enkel bij klachten in 0.6/1.7, of later een apart dashboard | **Later, apart dashboard** (kandidaat Project 3) | CO2 maar in 2 ruimtes, geen bruikbare RV-meting (Priva toont 0,9 %), geen akoestiekmeting; deadline 17/11 |
 | 12/11/2026 | Maatstaf voor inregeling | Opwarmsnelheid per zone (°C/u, eerste uur, kraan volledig open, gedeeld door aanvoer − ruimte) | Nog te beslissen (buiten scope app?) | |
+| 13/11/2026 | Zone 1.7 in `zones_koppeling.csv` | Device 500 (VAV-voeler AV191/171/170) invullen i.p.v. "niet uitgelezen" | Aanvaard | Koppeling moet kloppen met de export van 11/11 |
+| 13/11/2026 | Versiebeheer | Git opzetten vóór er code komt (eerste commit = ontwerp + logboek + referentiedata) | Aanvaard | Vangnet: altijd terug naar een werkende versie |
+| 13/11/2026 | Spec-prompt (stap 2) | `spec_prompt.md` volgens de 5 vragen (data, weglaten, stappen, output, controle) + verplichte slotzin; kolom **Duur** bewust niet ingevuld | Aanvaard; uitvoeren in een **nieuwe** sessie | De vragen van Claude komen hieronder, elk met mijn antwoord |
 
 ## Bekende beperkingen (eerlijk tonen in de app)
 - De norm spreekt over **operatieve temperatuur** (lucht + straling); het GBS meet **luchttemperatuur**. Bij klimaatplafonds kan dat verschillen.
