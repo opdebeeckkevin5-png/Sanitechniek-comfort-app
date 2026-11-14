@@ -104,6 +104,25 @@ def test_oorzaak_26_10(run):
     assert "warmteproductie leverde niet" in b.loc[1, "mogelijke oorzaak"]
 
 
+def test_ruwe_export_met_tekstwaarden():
+    """Een ruwe export bevat ook binaire punten ('active'/'inactive') en een kolom 'naam'.
+    Dan leest pandas 'waarde' als tekst in; stap 2 moet dat opvangen en tellen."""
+    ruw = pd.DataFrame({
+        "ts": ["2026-10-26T07:30:00+00:00"] * 4,
+        "device": [8, 8, 8, 500],
+        "type": ["analog-value", "analog-value", "binary-value", "analog-input"],
+        "instance": [3, 1, 5, 12],
+        "naam": ["KP 1.2 AV3", "KP 1.2 AV1", "pomp", "aanvoer"],
+        "waarde": ["19.2", "", "active", "19.5"],
+    })
+    uit, info = p.stap2_nodige_punten(ruw)
+    assert info.klopt
+    assert info.weg["ander BACnet-punt (niet nodig)"] == 1          # binary-value
+    assert info.weg["waarde is geen getal (leeg of tekst)"] == 1    # lege AV1
+    assert uit["waarde"].dtype.kind == "f"
+    p.stap3b_voelerfout(p.stap3_zone_koppelen(uit, p.lees_zones())[0])  # mag niet crashen
+
+
 def test_venster_5_kwartieren():
     van, tot = p.klachtvenster(pd.Timestamp("2026-10-26"), pd.Timedelta(hours=8, minutes=30))
     assert (van.strftime("%H:%M"), tot.strftime("%H:%M")) == ("08:00", "09:00")
