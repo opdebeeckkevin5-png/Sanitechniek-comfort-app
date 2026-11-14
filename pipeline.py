@@ -135,13 +135,20 @@ def stap2_nodige_punten(df: pd.DataFrame) -> tuple[pd.DataFrame, StapInfo]:
     ]
     uit = df.assign(grootheid=grootheid)
     uit = uit[uit["grootheid"].notna()].copy()
+    n_nodig = len(uit)
+    # Een ruwe export bevat ook binaire punten ("active"/"inactive"), waardoor pandas de hele
+    # kolom als tekst inleest. Na het filteren zetten we 'waarde' om naar een getal;
+    # wat geen getal is, valt weg en wordt geteld.
+    uit["waarde"] = pd.to_numeric(uit["waarde"], errors="coerce")
+    uit = uit[uit["waarde"].notna()]
     # Refter-punten van device 500 krijgen later zone 1.7; centrale punten krijgen "centraal"
     uit["is_refter"] = [
         (t, i) in REFTER_PUNTEN and d == CENTRAAL_DEVICE
         for t, i, d in zip(uit["type"], uit["instance"], uit["device"])
     ]
     info = StapInfo("2", "Enkel de nodige punten houden", len(df), len(uit),
-                    {"ander BACnet-punt (niet nodig)": len(df) - len(uit)},
+                    {"ander BACnet-punt (niet nodig)": len(df) - n_nodig,
+                     "waarde is geen getal (leeg of tekst)": n_nodig - len(uit)},
                     uitleg="Zones: AV3 ruimtetemp, AV1 SP verwarmen, AV2 SP koelen. "
                            "Device 500: AI1 buitentemp, AI12 aanvoer, AV66 kringsetpoint, "
                            "AV191/171/170 refter (VAV-voeler).")
