@@ -1,0 +1,125 @@
+"""Tests op de verzonnen voorbeelddata. Draaien met:  python -m pytest"""
+
+import sys
+from datetime import date
+from pathlib import Path
+
+import pandas as pd
+import pytest
+
+MAP = Path(__file__).parents[1]
+sys.path.insert(0, str(MAP))
+import pipeline as p  # noqa: E402
+
+GBS = MAP / "data" / "voorbeeld" / "gbs_voorbeeld.csv.gz"
+KLACHTEN = MAP / "data" / "voorbeeld" / "voorbeeld_klachten.xlsx"
+
+
+@pytest.fixture(scope="module")
+def run():
+    zones, fd = p.lees_zones(), p.lees_feestdagen()
+    infos = []
+    df, i = p.stap1_inlezen(GBS); infos.append(i)
+    for stap in (p.stap2_nodige_punten,):
+        df, i = stap(df); infos.append(i)
+    df, i = p.stap3_zone_koppelen(df, zones); infos.append(i)
+    fouten = p.voelerfouten(df)
+    df, i = p.stap3b_voelerfout(df); infos.append(i)
+    df, i = p.stap4_tijdzone(df); infos.append(i)
+    kw, i = p.stap5_per_kwartier(df, zones); infos.append(i)
+    centraal = p.centraal_breed(kw)
+    t6, i = p.stap6_kantooruren(p.breed_per_zone(kw), zones, fd); infos.append(i)
+    t7, i = p.stap7_toestand(t6); infos.append(i)
+    k, i8 = p.stap8_klachten(KLACHTEN, zones)
+    b, i9 = p.stap9_beoordelen(k, t7, centraal, zones, fd)
+    return {"infos": infos + [i8, i9], "fouten": fouten, "t7": t7, "kw": kw,
+            "klachten": k, "beoordeeld": b, "zones": zones, "fd": fd, "centraal": centraal}
+
+
+def test_trechter_klopt(run):
+    for info in run["infos"]:
+        assert info.klopt in (True, None), f"stap {info.nr}: in ≠ uit + weg"
+
+
+def test_voelerfout_3_metingen(run):
+    assert len(run["fouten"]) == 3
+    assert (run["fouten"]["waarde"] == 0.0).all()
+
+
+def test_buitentemp_onder_10_blijft(run):
+    buiten = run["centraal"]["buitentemp"]
+    assert (buiten < 10).any(), "buitentemp < 10 °C mag niet weggefilterd worden"
+
+
+def test_winteruur_geen_dubbele_kwartieren(run):
+    kw = run["kw"]
+    assert not kw.duplicated(["kwartier", "zone", "grootheid"]).any()
+    # zondag 25/10 heeft 25 uur = 100 kwartieren
+    dag = kw[(kw["zone"] == "1.2") & (kw["grootheid"] == "ruimtetemp")]
+    assert (dag["kwartier"].dt.date == date(2026, 10, 25)).sum() == 100
+
+
+def test_kantooruren(run):
+    t = run["t7"]
+    kantoor = t[t["kantooruur"]]
+    assert kantoor["kwartier"].dt.weekday.max() < 5
+    assert kantoor["kwartier"].dt.hour.between(8, 16).all()
+    # 36 kwartieren per werkdag per zone
+    assert kantoor.groupby(["zone", "dag"]).size().eq(36).all()
+
+
+def test_maximaal_1_kwartier_doortrekken(run):
+    kw = run["kw"]
+    reeks = kw[(kw["zone"] == "1.5") & (kw["grootheid"] == "ruimtetemp")].set_index("kwartier")
+    gat = reeks.loc["2026-10-28 10:00":"2026-10-28 12:45"]
+    assert gat["doorgetrokken"].sum() == 1          # 10:00 = vorige waarde doorgetrokken
+    assert gat["waarde"].isna().sum() == len(gat) - 1  # de rest blijft leeg
+
+
+def test_klachten_controle(run):
+    i8 = run["infos"][-2]
+    assert i8.weg["geen geldige datum"] == 1
+    assert i8.weg["lege of onbekende zone"] == 1
+    assert "Melder (initialen)" not in run["klachten"].columns
+    assert "Omschrijving" not in run["klachten"].columns
+
+
+@pytest.mark.parametrize("nr, verwacht", [
+    (1, p.GEGROND),      # 26/10 08:30 1.2 te koud, warmteproductie leverde niet
+    (2, p.ONGEGROND),    # binnen de band
+    (3, p.NTB_METING),   # magazijn
+    (4, p.NTB_DATA),     # datagat
+    (5, p.NTB_THEMA),    # akoestiek
+    (6, p.GEGROND),      # zonder tijdstip → hele werkdag, te warm
+    (7, p.ONGEGROND),    # te koud geklaagd, maar te warm
+    (8, p.NTB_METING),   # zone 0.1
+])
+def test_beoordeling(run, nr, verwacht):
+    b = run["beoordeeld"].set_index("klacht_nr")
+    assert b.loc[nr, "beoordeling"] == verwacht
+
+
+def test_oorzaak_26_10(run):
+    b = run["beoordeeld"].set_index("klacht_nr")
+    assert "warmteproductie leverde niet" in b.loc[1, "mogelijke oorzaak"]
+
+
+def test_venster_5_kwartieren():
+    van, tot = p.klachtvenster(pd.Timestamp("2026-10-26"), pd.Timedelta(hours=8, minutes=30))
+    assert (van.strftime("%H:%M"), tot.strftime("%H:%M")) == ("08:00", "09:00")
+    van, tot = p.klachtvenster(pd.Timestamp("2026-10-26"), pd.Timedelta(hours=8, minutes=37))
+    assert (van.strftime("%H:%M"), tot.strftime("%H:%M")) == ("08:00", "09:00")
+
+
+def test_buiten_kantooruren_vlag(run):
+    b = run["beoordeeld"].set_index("klacht_nr")
+    assert bool(b.loc[9, "buiten kantooruren"]) is True
+    assert bool(b.loc[1, "buiten kantooruren"]) is False
+
+
+def test_noemer_zonder_geen_data(run):
+    a1 = p.per_zone(run["t7"][run["t7"]["kantooruur"]], run["zones"])
+    rij = a1.loc["1.5 Directie 1"]
+    # % te koud + % te warm = % buiten (zelfde noemer: kwartieren mét data)
+    assert rij["% te koud"] + rij["% te warm"] == pytest.approx(rij["% buiten band"])
+    assert a1.loc["0.1 Nazorg (Kantoor 1)", "% geen data"] == 100

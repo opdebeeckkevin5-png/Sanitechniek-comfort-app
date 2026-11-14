@@ -44,6 +44,14 @@ Vul de kolom "waarom" aan in je eigen woorden: in het no-AI gesprek moet je elke
 | 13/11/2026 | Zone 1.7 in `zones_koppeling.csv` | Device 500 (VAV-voeler AV191/171/170) invullen i.p.v. "niet uitgelezen" | Aanvaard | Koppeling moet kloppen met de export van 11/11 |
 | 13/11/2026 | Versiebeheer | Git opzetten vóór er code komt (eerste commit = ontwerp + logboek + referentiedata) | Aanvaard | Vangnet: altijd terug naar een werkende versie |
 | 13/11/2026 | Spec-prompt (stap 2) | `spec_prompt.md` volgens de 5 vragen (data, weglaten, stappen, output, controle) + verplichte slotzin; kolom **Duur** bewust niet ingevuld | Aanvaard; uitvoeren in een **nieuwe** sessie | De vragen van Claude komen hieronder, elk met mijn antwoord |
+| 14/11/2026 | Regel 3b (< 10 / > 35 °C): op welke punten? | Enkel ruimtetemperaturen (AV3 zones, AV191 refter) | **Aanvaard** | Buitentemp < 10 °C en aanvoer > 35 °C zijn normale waarden, geen voelerfout |
+| 14/11/2026 | Tellen kwartieren zonder data mee in de noemer van "% binnen band"? | Nee: % binnen = binnen / kwartieren mét data; "geen data" apart tonen | **Aanvaard** | Een datagat mag de score niet verlagen of verhogen |
+| 14/11/2026 | Klacht met een deels ontbrekend venster (±30 min) | Eén gemeten kwartier buiten de band in de richting van de klacht = gegrond; anders, als er een kwartier ontbreekt → n.t.b. – geen data | **Aanvaard** | Een gemeten afwijking blijft een afwijking; "ongegrond" enkel als alles gemeten is |
+| 14/11/2026 | Testdata (`.csv.gz`) wordt geblokkeerd door `.gitignore` | Uitzondering `!data/voorbeeld/*.csv.gz` | **Aanvaard** | Wie de repo kloont, kan de app proberen; echte exports blijven geblokkeerd |
+| 14/11/2026 | Welke kwartieren vallen in ±30 min? | Kwartier krijgt het label van zijn begin; klacht 08:30 → kwartieren 08:00 t.e.m. 09:00 (5 kwartieren) | **Aanvaard** | |
+| 14/11/2026 | Band aanpasbaar in de zijbalk | Winter en zomer elk apart (min/max), app kiest per dag volgens de maand | **Aanvaard** | |
+| 14/11/2026 | Klacht buiten de kantooruren | Gewoon beoordelen (data is er 24/7) + kolom "buiten kantooruren" | **Aanvaard** | Stand-by kan dan de oorzaak zijn |
+| 14/11/2026 | Testen op echte data? | Lokaal op de export van 11/11 met verzonnen klachten (formulier is nog leeg); niets in de repo | **Aanvaard** | Steekproeven 26/10, 15/10 en 21/10 nagaan op echte cijfers |
 
 ## Bekende beperkingen (eerlijk tonen in de app)
 - De norm spreekt over **operatieve temperatuur** (lucht + straling); het GBS meet **luchttemperatuur**. Bij klimaatplafonds kan dat verschillen.

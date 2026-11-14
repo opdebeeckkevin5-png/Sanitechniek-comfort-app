@@ -7,3 +7,6 @@ klachten_*.xlsx
 .env
 __pycache__/
 .pytest_cache/
+
+# Uitzondering: verzonnen testdata mag wél in de repo
+!data/voorbeeld/*.csv.gz
