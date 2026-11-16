@@ -14,3 +14,7 @@ __pycache__/
 # Mails met echte klachten (bevatten namen) nooit in de repo
 *.eml
 *.msg
+
+# Klachten als CSV (download uit OneDrive) bevatten namen: nooit in de repo
+*klacht*.csv
+*Klacht*.csv
