@@ -87,6 +87,20 @@ Detailniveau ✅: per kwartier (laatste meting, max. 1 kwartier doortrekken). Zo
 
 ## 5. Lay-out – schets (teken dit zelf op papier)
 
+**Mijn eerste schets op papier** (`ontwerp_schets_papier.jpg`):
+
+![Eerste schets op papier](ontwerp_schets_papier.jpg)
+
+| Op papier | In de app |
+|---|---|
+| Links: **Data** · **Klachten** (uploads) | Zijbalk: 📤 GBS-data · 📤 Klachten |
+| Links: **Filter zone's** | Zijbalk: filter zone(s), aangevuld met periode, band en "ook nacht/weekend" |
+| Rechts boven: **Analyse data per zone** | Tab *Comfort*: A1 tabel per zone, A2 heatmap, A3 te koud/te warm + KPI's bovenaan |
+| Rechts onder: **Klachten analyseren t.o.v. data** | Tab *Klachten*: B1 beoordeling per klacht, B3 verloop rond de klacht |
+| – (nog niet op papier) | Tab *Oorzaak* (aanvoer vs kringsetpoint) en tab *Stap voor stap* (rijen-trechter) – toegevoegd tijdens de decompositie, uitgewerkt in `ontwerp_dashboard.svg` |
+
+Uitgewerkte versie (Excalidraw → `ontwerp_dashboard.svg`):
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ Comfort kantoor – periode [van–tot]   📤 GBS-data  📤 klachten │
