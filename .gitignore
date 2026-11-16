@@ -10,3 +10,7 @@ __pycache__/
 
 # Uitzondering: verzonnen testdata mag wél in de repo
 !data/voorbeeld/*.csv.gz
+
+# Mails met echte klachten (bevatten namen) nooit in de repo
+*.eml
+*.msg
