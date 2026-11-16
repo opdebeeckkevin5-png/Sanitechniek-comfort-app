@@ -7,6 +7,9 @@ Zo kan de app (en jij in het no-AI gesprek) elke stap apart tonen en narekenen.
 
 from __future__ import annotations
 
+import csv
+import io
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -384,10 +387,74 @@ def _tijd_naar_timedelta(x) -> pd.Timedelta | None:
         return None
 
 
+def lees_klachtenbestand(bestand) -> pd.DataFrame:
+    """Klachtenformulier inlezen: Excel (blad 'Klachten') of CSV (download uit Excel / OneDrive).
+
+    CSV: scheidingsteken (, of ;) en tekenset (UTF-8 of Windows) worden herkend; de lege kolommen
+    die Excel meeschrijft ('Unnamed: …') vallen weg. Kolommen Melder en Omschrijving gaan meteen weg."""
+    data = bestand.read() if hasattr(bestand, "read") else Path(bestand).read_bytes()
+    if data[:2] == b"PK":  # .xlsx is een zip-bestand
+        k = pd.read_excel(io.BytesIO(data), sheet_name="Klachten")
+    else:
+        for tekenset in ("utf-8-sig", "cp1252"):
+            try:
+                tekst = data.decode(tekenset)
+                break
+            except UnicodeDecodeError:
+                continue
+        eerste = tekst.splitlines()[0] if tekst else ""
+        sep = csv.Sniffer().sniff(eerste, delimiters=",;\t").delimiter if eerste else ","
+        k = pd.read_csv(io.StringIO(tekst), sep=sep, dtype=str, keep_default_na=True,
+                        usecols=lambda c: not str(c).startswith("Unnamed"))
+        k = k.apply(lambda s: s.str.strip())
+    return k.drop(columns=[c for c in PRIVACY_KOLOMMEN if c in k.columns])  # privacy: meteen weg
+
+
+DATUM_DMJ = re.compile(r"^\s*(\d{1,2})[/.\-](\d{1,2})[/.\-](\d{4})")
+
+
+def lees_datums(reeks: pd.Series) -> tuple[pd.Series, str]:
+    """Datums lezen en de volgorde (dag/maand of maand/dag) per bestand bepalen.
+
+    Excel-cellen met een echte datum zijn eenduidig. Tekst zoals '11/9/2026' niet:
+    - een tweede getal > 12 ergens in het bestand ('10/26/2026') → maand/dag (Amerikaans, bv. Excel Online);
+    - een eerste getal > 12 ('26/10/2026') → dag/maand (Belgisch);
+    - geen van beide → dag/maand aangenomen, met een waarschuwing.
+    Teruggave: (datums, uitleg)."""
+    tekst = reeks.dropna().astype(str)
+    delen = tekst.str.extract(DATUM_DMJ).dropna().astype(int)
+    if delen.empty:
+        uitleg, maand_eerst = "", False
+    elif (delen[1] > 12).any():
+        uitleg, maand_eerst = "Datums gelezen als maand/dag/jaar (Amerikaans formaat herkend, bv. 10/26/2026).", True
+    elif (delen[0] > 12).any():
+        uitleg, maand_eerst = "Datums gelezen als dag/maand/jaar.", False
+    else:
+        uitleg, maand_eerst = ("⚠️ Datumvolgorde niet eenduidig (alle getallen ≤ 12): dag/maand/jaar aangenomen. "
+                               "Controleer de datums of gebruik het formaat jjjj-mm-dd."), False
+
+    def een(x):
+        if pd.isna(x) or str(x).strip() == "":
+            return pd.NaT
+        if hasattr(x, "year"):  # al een datum (Excel)
+            return pd.Timestamp(x)
+        s = str(x).strip()
+        m = DATUM_DMJ.match(s)
+        if m:
+            a, b, j = (int(g) for g in m.groups())
+            d, mnd = (b, a) if maand_eerst else (a, b)
+            try:
+                return pd.Timestamp(year=j, month=mnd, day=d)
+            except ValueError:
+                return pd.NaT
+        return pd.to_datetime(s, errors="coerce")  # bv. 2026-11-09
+
+    return pd.to_datetime(reeks.map(een), errors="coerce").dt.normalize(), uitleg
+
+
 def stap8_klachten(bestand, zones: pd.DataFrame) -> tuple[pd.DataFrame, StapInfo]:
-    """Klachtenformulier inlezen (blad 'Klachten') en controleren."""
-    k = pd.read_excel(bestand, sheet_name="Klachten")
-    k = k.drop(columns=[c for c in PRIVACY_KOLOMMEN if c in k.columns])  # privacy: meteen weg
+    """Klachtenformulier (Excel of CSV) inlezen en controleren."""
+    k = lees_klachtenbestand(bestand)
     rijen_in = len(k)
     weg: dict[str, int] = {}
 
@@ -395,7 +462,7 @@ def stap8_klachten(bestand, zones: pd.DataFrame) -> tuple[pd.DataFrame, StapInfo
     weg["lege rij"] = int(leeg.sum())
     k = k[~leeg].copy()
 
-    k["datum"] = pd.to_datetime(k["Datum"], errors="coerce", dayfirst=True).dt.normalize()
+    k["datum"], datum_uitleg = lees_datums(k["Datum"])
     ongeldig = k["datum"].isna()
     weg["geen geldige datum"] = int(ongeldig.sum())
     k = k[~ongeldig].copy()
@@ -412,7 +479,7 @@ def stap8_klachten(bestand, zones: pd.DataFrame) -> tuple[pd.DataFrame, StapInfo
     info = StapInfo("8", "Klachten inlezen + controleren", rijen_in, len(k), weg,
                     uitleg="Kolommen Melder en Omschrijving worden meteen verwijderd (privacy). "
                            f"{int(k['uur'].isna().sum())} klacht(en) zonder geldig tijdstip → "
-                           "hele werkdag (8–17 u) bekijken.")
+                           "hele werkdag (8–17 u) bekijken. " + datum_uitleg)
     return k, info
 
 
@@ -420,10 +487,9 @@ def klachten_zonder_datum(bestand, zones: pd.DataFrame) -> pd.DataFrame:
     """Klachten die stap 8 weglaat omdat de datum ontbreekt, maar die wel een zone of soort hebben.
     Ze worden niet beoordeeld (geen moment om te koppelen), maar de app toont ze apart als
     'algemene klacht', zodat ze niet onzichtbaar worden."""
-    k = pd.read_excel(bestand, sheet_name="Klachten")
-    k = k.drop(columns=[c for c in PRIVACY_KOLOMMEN if c in k.columns])
+    k = lees_klachtenbestand(bestand)
     k = k[~k[["Datum", "Zone", "Soort klacht"]].isna().all(axis=1)]
-    zonder = k[pd.to_datetime(k["Datum"], errors="coerce", dayfirst=True).isna()]
+    zonder = k[lees_datums(k["Datum"])[0].isna()]
     kolommen = [c for c in ("Zone", "Discipline", "Soort klacht", "Ernst", "Zelf aangepast") if c in zonder]
     return zonder[kolommen].reset_index(drop=True)
 
@@ -434,8 +500,9 @@ def zelf_gemeten_vergelijken(beoordeeld: pd.DataFrame) -> pd.DataFrame:
     'verschil met GBS' = hoeveel °C de eigen meting buiten het GBS-bereik (temp min–max) ligt.
     Groter dan GEMETEN_DREMPEL → markeren. De beoordeling blijft op het GBS gebaseerd."""
     kol = next((c for c in beoordeeld.columns if str(c).startswith("Gemeten temp")), None)
-    gemeten = (pd.to_numeric(beoordeeld[kol], errors="coerce") if kol
-               else pd.Series(float("nan"), index=beoordeeld.index))
+    gemeten = (pd.to_numeric(beoordeeld[kol].astype(str).str.replace(",", ".", regex=False),
+                             errors="coerce") if kol
+               else pd.Series(float("nan"), index=beoordeeld.index))  # "16,0" (decimale komma) → 16.0
     onder = (beoordeeld["temp min"] - gemeten).clip(lower=0)
     boven = (gemeten - beoordeeld["temp max"]).clip(lower=0)
     verschil = onder.fillna(0) + boven.fillna(0)

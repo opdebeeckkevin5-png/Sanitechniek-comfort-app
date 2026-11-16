@@ -62,7 +62,8 @@ naam = dict(zip(zones["zone"], zones["naam"]))
 with st.sidebar:
     st.header("Data")
     up_gbs = st.file_uploader("📤 GBS-data (.csv.gz)", type=["gz"])
-    up_klachten = st.file_uploader("📤 Klachten (.xlsx)", type=["xlsx"])
+    up_klachten = st.file_uploader("📤 Klachten (.xlsx of .csv)", type=["xlsx", "csv"],
+                                   help="Het klachtenformulier als Excel, of als CSV gedownload uit Excel/OneDrive.")
     voorbeeld = False
     if up_gbs is None:
         voorbeeld = st.toggle("Verzonnen voorbeelddata gebruiken", value=True,
@@ -256,6 +257,11 @@ with tab_klachten:
     elif kl.empty:
         st.info("Geen klachten in deze periode / zone(s).")
     else:
+        if "⚠️" in i8.uitleg:
+            st.warning(i8.uitleg.split("⚠️", 1)[1].strip())
+        elif "maand/dag" in i8.uitleg:
+            st.info("Datums in het klachtenbestand gelezen als **maand/dag/jaar** (Amerikaans formaat, "
+                    "zoals Excel Online een CSV wegschrijft).")
         st.subheader("B1 · Elke klacht naast de meting (±30 min)")
         toon = pd.DataFrame({
             "Nr": kl["klacht_nr"],

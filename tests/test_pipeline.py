@@ -142,6 +142,50 @@ def test_klachten_zonder_datum(run):
     assert "Melder (initialen)" not in algemeen.columns and "Omschrijving" not in algemeen.columns
 
 
+@pytest.mark.parametrize("datums, verwacht, woord", [
+    (["10/26/2026", "11/9/2026"], ["2026-10-26", "2026-11-09"], "maand/dag"),   # Excel Online (VS)
+    (["26/10/2026", "9/11/2026"], ["2026-10-26", "2026-11-09"], "dag/maand"),   # Belgisch
+    (["2026-10-26", "2026-11-09"], ["2026-10-26", "2026-11-09"], ""),           # ISO: eenduidig
+    (["9/11/2026"], ["2026-11-09"], "⚠️"),                                     # niet eenduidig → waarschuwing
+])
+def test_datumvolgorde(datums, verwacht, woord):
+    """11/9/2026 mag nooit stil als 11 september gelezen worden als het bestand maand/dag gebruikt."""
+    uit, uitleg = p.lees_datums(pd.Series(datums + [None]))
+    assert uit.dt.strftime("%Y-%m-%d").tolist()[:-1] == verwacht
+    assert pd.isna(uit.iloc[-1])
+    assert woord in uitleg
+
+
+def test_klachten_csv_zoals_excel_online(tmp_path):
+    """CSV met komma's, Windows-tekenset (°), lege Excel-kolommen en VS-datums."""
+    kop = ("Datum,Tijdstip,Duur,Zone,Discipline,Soort klacht,Ernst,Raam/deur open,Zelf aangepast,"
+           "Gemeten temp (°C),Omschrijving,Melder (initialen),Beoordeling,Oorzaak,Opmerking technische dienst")
+    rijen = [kop + ",,,",
+             '10/26/2026,8:00,30 min - 2 uur,1.2 Calculatie (Kantoor 4),CV (verwarming),Te koud,2 - Storend,'
+             'Nee,Niets,"18,5",verzonnen,XX,,,,,,',
+             ",,,1.7 Refter,CV (verwarming),Te koud,2 - Storend,Nee,Andere,,verzonnen,XX,,,,,,",
+             ",,,,,,,,,,,,,,,,,"]
+    f = tmp_path / "klachten.csv"
+    f.write_bytes("\r\n".join(rijen).encode("cp1252"))
+    zones = p.lees_zones()
+    k, info = p.stap8_klachten(f, zones)
+    assert info.klopt and len(k) == 1
+    assert k.loc[0, "datum"] == pd.Timestamp("2026-10-26")
+    assert k.loc[0, "uur"] == pd.Timedelta(hours=8)
+    assert "Melder (initialen)" not in k.columns and not any(c.startswith("Unnamed") for c in k.columns)
+    assert len(p.klachten_zonder_datum(f, zones)) == 1
+    gemeten = p.zelf_gemeten_vergelijken(k.assign(**{"temp min": 19.0, "temp max": 19.5}))
+    assert gemeten.loc[0, "zelf gemeten"] == 18.5          # decimale komma gelezen
+
+
+def test_klachten_csv_puntkomma_utf8(tmp_path):
+    f = tmp_path / "klachten.csv"
+    f.write_text("Datum;Tijdstip;Zone;Soort klacht\n2026-11-11;11:49;1.3 Elektro & regeling (Kantoor 5);Te koud\n",
+                 encoding="utf-8-sig")
+    k, _ = p.stap8_klachten(f, p.lees_zones())
+    assert len(k) == 1 and k.loc[0, "zone"] == "1.3"
+
+
 def test_venster_5_kwartieren():
     van, tot = p.klachtvenster(pd.Timestamp("2026-10-26"), pd.Timedelta(hours=8, minutes=30))
     assert (van.strftime("%H:%M"), tot.strftime("%H:%M")) == ("08:00", "09:00")
