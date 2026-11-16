@@ -52,6 +52,12 @@ Vul de kolom "waarom" aan in je eigen woorden: in het no-AI gesprek moet je elke
 | 14/11/2026 | Band aanpasbaar in de zijbalk | Winter en zomer elk apart (min/max), app kiest per dag volgens de maand | **Aanvaard** | |
 | 14/11/2026 | Klacht buiten de kantooruren | Gewoon beoordelen (data is er 24/7) + kolom "buiten kantooruren" | **Aanvaard** | Stand-by kan dan de oorzaak zijn |
 | 14/11/2026 | Testen op echte data? | Lokaal op de export van 11/11 met verzonnen klachten (formulier is nog leeg); niets in de repo | **Aanvaard** | Steekproeven 26/10, 15/10 en 21/10 nagaan op echte cijfers |
+| 14/11/2026 | Ruwe GBS-dump (alle punten, 25/09–13/11) liet de app crashen | Stap 2: `waarde` omzetten naar getal; wat geen getal is weglaten en tellen ("waarde is geen getal") | Aanvaard | Binaire punten (`active`/`inactive`) maakten van de hele kolom tekst. Bij de kringdata-export: 0 rijen weg. De AI-tests vingen dit niet op (verzonnen data had enkel getallen) → test toegevoegd |
+| 14/11/2026 | Ruwe dump begint op 25/09, zones pas uitgelezen vanaf 08/10 | Periode in de zijbalk vanaf 09/10 zetten | Nog te beslissen | KPI verandert niet (noemer = kwartieren mét data), maar "% geen data" stijgt naar ± 33 % |
+| 16/11/2026 | Eerste echte klachten (2 mails, 12/11) | Mails buiten git (`*.eml` in `.gitignore`), bijlagen naar `data/echt/` (genegeerd); enkel mail 2 gebruiken | Voorstel (Claude ging verder met de aanbevolen keuze) | Mail 2 bevat alle klachten van mail 1 + 2 extra → anders dubbel geteld |
+| 16/11/2026 | 3 klachten zonder datum ("altijd te koud") | Niet beoordelen (spec), wel apart tonen als "algemene klacht" in de tab Klachten | Voorstel | Zonder datum geen koppeling met een meting mogelijk; tellen niet mee in de KPI's, maar mogen niet onzichtbaar worden |
+| 16/11/2026 | Zelf gemeten temperatuur op het formulier | Kolom "Zelf gemeten" in B1 + melding als het verschil met het GBS > 2 °C is; beoordeling blijft op het GBS | Voorstel | Klacht 11/11 11:49 zone 1.3: zelf gemeten 16,0 °C, GBS 21,4–21,6 °C (verschil 5,4 °C) → ongegrond volgens het GBS, maar samen nameten |
+| 16/11/2026 | Klacht gedateerd op 11/11, maar het bedrijf was gesloten (Wapenstilstand) | Datum niet zelf aanpassen; navragen bij de collega | Nog te doen | Op 10, 12 en 13/11 rond 11:49 was zone 1.3 ook binnen de band (20,5–23,1 °C) → beoordeling blijft ongegrond |
 
 ## Bekende beperkingen (eerlijk tonen in de app)
 - De norm spreekt over **operatieve temperatuur** (lucht + straling); het GBS meet **luchttemperatuur**. Bij klimaatplafonds kan dat verschillen.

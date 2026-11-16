@@ -123,6 +123,25 @@ def test_ruwe_export_met_tekstwaarden():
     p.stap3b_voelerfout(p.stap3_zone_koppelen(uit, p.lees_zones())[0])  # mag niet crashen
 
 
+def test_zelf_gemeten_vergelijken():
+    """Eigen meting > 2 °C buiten het GBS-bereik wordt gemarkeerd; de beoordeling verandert niet."""
+    df = pd.DataFrame({"Gemeten temp (°C)": [16.0, 21.0, None, "?"],
+                       "temp min": [21.4, 20.5, 21.0, 21.0], "temp max": [21.6, 21.5, 22.0, 22.0],
+                       "beoordeling": [p.ONGEGROND] * 4})
+    uit = p.zelf_gemeten_vergelijken(df)
+    assert uit["verschil met GBS"].iloc[0] == pytest.approx(5.4)
+    assert uit["verschil met GBS"].iloc[1] == 0               # binnen het GBS-bereik
+    assert uit["afwijkende eigen meting"].tolist() == [True, False, False, False]
+    assert (uit["beoordeling"] == p.ONGEGROND).all()
+
+
+def test_klachten_zonder_datum(run):
+    """De klacht zonder datum valt weg in stap 8, maar blijft zichtbaar als algemene klacht."""
+    algemeen = p.klachten_zonder_datum(KLACHTEN, run["zones"])
+    assert len(algemeen) == run["infos"][-2].weg["geen geldige datum"] == 1
+    assert "Melder (initialen)" not in algemeen.columns and "Omschrijving" not in algemeen.columns
+
+
 def test_venster_5_kwartieren():
     van, tot = p.klachtvenster(pd.Timestamp("2026-10-26"), pd.Timedelta(hours=8, minutes=30))
     assert (van.strftime("%H:%M"), tot.strftime("%H:%M")) == ("08:00", "09:00")

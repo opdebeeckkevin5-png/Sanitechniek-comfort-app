@@ -46,7 +46,9 @@ def gbs_stappen(inhoud: bytes) -> dict:
 
 @st.cache_data(show_spinner="Klachten inlezen …")
 def klachten_inlezen(inhoud: bytes):
-    return p.stap8_klachten(io.BytesIO(inhoud), p.lees_zones())
+    zones = p.lees_zones()
+    klachten, info = p.stap8_klachten(io.BytesIO(inhoud), zones)
+    return klachten, info, p.klachten_zonder_datum(io.BytesIO(inhoud), zones)
 
 
 # ---------------------------------------------------------------------------
@@ -118,10 +120,10 @@ with st.sidebar:
 # Stap 7 en 9 hangen af van de band → telkens opnieuw (snel)
 df7, i7 = p.stap7_toestand(df6, band)
 if klacht_bytes is not None:
-    klachten, i8 = klachten_inlezen(klacht_bytes)
+    klachten, i8, algemeen = klachten_inlezen(klacht_bytes)
     beoordeeld, i9 = p.stap9_beoordelen(klachten, df7, gbs["centraal"], zones, feestdagen)
 else:
-    klachten = beoordeeld = None
+    klachten = beoordeeld = algemeen = None
     i8 = i9 = None
 
 # Filters toepassen
@@ -261,8 +263,11 @@ with tab_klachten:
             "Uur": kl["uur"].map(lambda u: "hele dag" if pd.isna(u)
                                  else f"{int(u.total_seconds() // 3600):02d}:{int(u.total_seconds() % 3600 // 60):02d}"),
             "Zone": kl["Zone"], "Soort": kl["Soort klacht"], "Ernst": kl.get("Ernst"),
-            "Temp min–max": [("–" if pd.isna(a) else f"{a:.1f}–{b:.1f}".replace(".", ","))
-                             for a, b in zip(kl["temp min"], kl["temp max"])],
+            "Temp GBS min–max": [("–" if pd.isna(a) else f"{a:.1f}–{b:.1f}".replace(".", ","))
+                                 for a, b in zip(kl["temp min"], kl["temp max"])],
+            "Zelf gemeten": [("–" if pd.isna(g) else f"{g:.1f}".replace(".", ",")
+                              + (" ⚠️" if afw else "")) for g, afw in
+                             zip(kl["zelf gemeten"], kl["afwijkende eigen meting"])],
             "Beoordeling": kl["beoordeling"], "Waarom": kl["reden"],
             "Mogelijke oorzaak": kl["mogelijke oorzaak"],
             "Buiten kantooruren": kl["buiten kantooruren"],
@@ -274,7 +279,17 @@ with tab_klachten:
         keuze = st.dataframe(stijl, width="stretch", hide_index=True,
                              on_select="rerun", selection_mode="single-row", key="klachtkeuze")
         st.caption("Klik een rij aan voor het detail (B3). 'Beoordeling TD' = wat de technische dienst "
-                   "zelf invulde op het formulier, ter vergelijking.")
+                   "zelf invulde op het formulier, ter vergelijking. 'Zelf gemeten' = temperatuur die de "
+                   "collega op het formulier invulde; de beoordeling gebruikt enkel het GBS.")
+        afwijkend = kl[kl["afwijkende eigen meting"]]
+        for _, r in afwijkend.iterrows():
+            st.warning(
+                f"Klacht {r['klacht_nr']} ({r['Zone']}, {r['datum']:%d/%m}): zelf gemeten "
+                f"{r['zelf gemeten']:.1f} °C, het GBS gaf {r['temp min']:.1f}–"
+                f"{r['temp max']:.1f} °C (verschil {r['verschil met GBS']:.1f} °C > "
+                f"{p.GEMETEN_DREMPEL:g} °C). Mogelijke oorzaken: ander meettoestel, meting op een andere "
+                "plek (raam, buitenmuur), of de voeler van de regelaar hangt op een ongunstige plek. "
+                "Even samen nameten.")
 
         rijen = keuze.selection.rows if keuze and keuze.selection else []
         gekozen_klacht = kl.iloc[rijen[0]] if rijen else kl.iloc[0]
@@ -294,6 +309,13 @@ with tab_klachten:
                            if gekozen_klacht["mogelijke oorzaak"] else ""))
         else:
             st.info(f"{gekozen_klacht['beoordeling']}: {gekozen_klacht['reden']}.")
+
+    if algemeen is not None and len(algemeen):
+        st.subheader(f"Algemene klachten zonder datum ({len(algemeen)})")
+        st.dataframe(algemeen, width="stretch", hide_index=True)
+        st.caption("Deze klachten hebben geen datum, dus de app kan ze niet aan een meting koppelen en "
+                   "beoordeelt ze niet (ze staan in de rijen-trechter bij stap 8 als 'geen geldige datum'). "
+                   "Ze tellen niet mee in de KPI's. Gebruik ze als signaal: vraag een datum en uur bij een volgende klacht.")
 
 # ---------------------------------------------------------------------------
 # Tab Oorzaak

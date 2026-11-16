@@ -47,6 +47,7 @@ CENTRALE_PUNTEN = {  # device 500
 VOELER_MIN, VOELER_MAX = 10.0, 35.0
 VENSTER = pd.Timedelta(minutes=30)
 OORZAAK_DREMPEL = 3.0  # aanvoer > 3 °C onder kringsetpoint = warmteproductie levert niet
+GEMETEN_DREMPEL = 2.0  # zelf gemeten temp > 2 °C buiten het GBS-bereik = markeren (geen invloed op beoordeling)
 
 # Categorieën
 BINNEN, TE_KOUD, TE_WARM, GEEN_DATA = "binnen band", "te koud", "te warm", "geen data"
@@ -415,6 +416,34 @@ def stap8_klachten(bestand, zones: pd.DataFrame) -> tuple[pd.DataFrame, StapInfo
     return k, info
 
 
+def klachten_zonder_datum(bestand, zones: pd.DataFrame) -> pd.DataFrame:
+    """Klachten die stap 8 weglaat omdat de datum ontbreekt, maar die wel een zone of soort hebben.
+    Ze worden niet beoordeeld (geen moment om te koppelen), maar de app toont ze apart als
+    'algemene klacht', zodat ze niet onzichtbaar worden."""
+    k = pd.read_excel(bestand, sheet_name="Klachten")
+    k = k.drop(columns=[c for c in PRIVACY_KOLOMMEN if c in k.columns])
+    k = k[~k[["Datum", "Zone", "Soort klacht"]].isna().all(axis=1)]
+    zonder = k[pd.to_datetime(k["Datum"], errors="coerce", dayfirst=True).isna()]
+    kolommen = [c for c in ("Zone", "Discipline", "Soort klacht", "Ernst", "Zelf aangepast") if c in zonder]
+    return zonder[kolommen].reset_index(drop=True)
+
+
+def zelf_gemeten_vergelijken(beoordeeld: pd.DataFrame) -> pd.DataFrame:
+    """Zelf gemeten temperatuur (formulier) naast het GBS zetten.
+
+    'verschil met GBS' = hoeveel °C de eigen meting buiten het GBS-bereik (temp min–max) ligt.
+    Groter dan GEMETEN_DREMPEL → markeren. De beoordeling blijft op het GBS gebaseerd."""
+    kol = next((c for c in beoordeeld.columns if str(c).startswith("Gemeten temp")), None)
+    gemeten = (pd.to_numeric(beoordeeld[kol], errors="coerce") if kol
+               else pd.Series(float("nan"), index=beoordeeld.index))
+    onder = (beoordeeld["temp min"] - gemeten).clip(lower=0)
+    boven = (gemeten - beoordeeld["temp max"]).clip(lower=0)
+    verschil = onder.fillna(0) + boven.fillna(0)
+    verschil = verschil.where(gemeten.notna() & beoordeeld["temp min"].notna())
+    return beoordeeld.assign(**{"zelf gemeten": gemeten, "verschil met GBS": verschil,
+                                "afwijkende eigen meting": verschil > GEMETEN_DREMPEL})
+
+
 def klachtvenster(datum: pd.Timestamp, uur: pd.Timedelta | None) -> tuple[pd.Timestamp, pd.Timestamp]:
     """Eerste en laatste kwartier (begin-label) dat meetelt voor een klacht."""
     if uur is None or pd.isna(uur):
@@ -489,6 +518,7 @@ def stap9_beoordelen(klachten: pd.DataFrame, toestand: pd.DataFrame, centraal: p
                     r["reden"] = f"alle {verwacht} kwartieren binnen de band"
         rijen.append(r)
     beoordeeld = klachten.merge(pd.DataFrame(rijen), on="klacht_nr", how="left")
+    beoordeeld = zelf_gemeten_vergelijken(beoordeeld)
     telling = beoordeeld["beoordeling"].value_counts().to_dict()
     info = StapInfo("9", "Klacht ↔ meting (±30 min) beoordelen", len(klachten), len(beoordeeld),
                     soort="omvormen",
