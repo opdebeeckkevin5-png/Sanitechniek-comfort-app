@@ -18,3 +18,8 @@ __pycache__/
 # Klachten als CSV (download uit OneDrive) bevatten namen: nooit in de repo
 *klacht*.csv
 *Klacht*.csv
+
+# Elk klachtenformulier als Excel (bevat namen), behalve de verzonnen voorbeelddata
+*klacht*.xlsx
+*Klacht*.xlsx
+!data/voorbeeld/*.xlsx
